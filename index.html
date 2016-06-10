@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="app1">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div ng-controller="HomeCtrl as home">
+    <ul>
+        <li ng-repeat="msg in home.msgs">
+            <h3>{{msg.from.username}}</h3>
+            <ul>
+                <li ng-repeat="history in msg.history"><b>{{history.owner ? 'Siz' : 'U'}}</b> : {{history.text}}</li>
+            </ul>
+            <input type="text" ng-model="home.sendText">
+            <button type="button" ng-click="home.sendToUser(msg.from.id)">Send</button>
+        </li>
+    </ul>
+</div>
+
+<script src="bundle.js"></script>
+</body>
+</html>
